@@ -1,4 +1,4 @@
-import dbConnect from "@/lib/db/mongodb";
+import dbConnect from "lib/db/mongodb";
 import Otro from "models/Otro";
 import type { NextApiRequest, NextApiResponse } from "next";
 

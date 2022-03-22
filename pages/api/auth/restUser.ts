@@ -1,4 +1,4 @@
-import dbConnect from "@/lib/db/mongodb";
+import dbConnect from "lib/db/mongodb";
 import User from "models/User";
 import type { NextApiRequest, NextApiResponse } from "next";
 import bcrypt from "bcryptjs";
