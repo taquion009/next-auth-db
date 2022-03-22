@@ -6,6 +6,7 @@ import bcrypt from "bcryptjs";
 type Data = {
   ok: boolean;
   message?: string;
+  data?: any;
 };
 
 export default async function handler(
@@ -37,6 +38,7 @@ export default async function handler(
         res.status(200).json({
           ok: true,
           message: "User created",
+          data: userSAve,
         });
       } catch (err: any) {
         res.status(500).json({

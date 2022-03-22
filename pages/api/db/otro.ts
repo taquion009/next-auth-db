@@ -1,8 +1,6 @@
 import dbConnect from "@/lib/db/mongodb";
 import Otro from "models/Otro";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getSession } from "next-auth/react";
-import { getToken } from "next-auth/jwt";
 
 type Data = {
   ok: boolean;
@@ -15,18 +13,6 @@ export default async function handler(
 ) {
   await dbConnect();
   const { method } = req;
-
-  const user = await getSession({ req });
-  const token = await getToken({ req });
-
-  console.log(token, "tohen");
-
-  if (!user) {
-    res.status(401).json({
-      ok: false,
-      message: "Unauthorized",
-    });
-  }
 
   switch (method) {
     case "POST":

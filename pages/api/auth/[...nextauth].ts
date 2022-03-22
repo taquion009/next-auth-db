@@ -34,10 +34,13 @@ export default NextAuth({
             return null;
           }
 
-          if (await bcrypt.compare(credentials.password, user.password)) {
+          if (
+            await bcrypt.compare(credentials.password, user._doc.passwordHash)
+          ) {
             return {
               id: user._id,
-              name: user.username,
+              username: user.username,
+              name: user.name,
             };
           }
 
@@ -53,6 +56,7 @@ export default NextAuth({
     jwt: async ({ token, user }: any) => {
       if (user) {
         token.id = user.id;
+        token.username = user.username;
       }
 
       return token;
@@ -60,6 +64,7 @@ export default NextAuth({
     session: ({ session, token }: any) => {
       if (token) {
         session.id = token.id;
+        session.username = token.username;
       }
 
       return session;
