@@ -2,7 +2,7 @@ import User from "models/User";
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
-import dbConnect from "@/lib/db/mongodb";
+import dbConnect from "lib/db/mongodb";
 
 export default NextAuth({
   session: {

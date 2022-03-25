@@ -27,5 +27,6 @@
     "node-sass": "^7.0.1",
     "sass": "^1.49.9",
     "typescript": "4.6.2"
-  }
+  },
+  "browserslist":  [ "last 5 versions", "> 1%" ]
 }
